@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import CardElement from '../../components/CardElement';
+import InformativeBar from '../../components/InformativeBar';
 
 function EmployeeScreen() {
   return (
@@ -13,6 +14,10 @@ function EmployeeScreen() {
         <CardElement />
         <CardElement />
         <CardElement />
+        <InformativeBar />
+        <TouchableOpacity onPress={() => navigation.navigate('EmployeeScreen')}>
+            <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10 }}>Log In</Text>
+        </TouchableOpacity>
         {/* Add more CardElement components as needed */}
       </ScrollView>
     </View>
