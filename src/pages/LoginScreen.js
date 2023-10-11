@@ -52,7 +52,7 @@ function LoginScreen({navigation}) {
             <TouchableOpacity onPress={handleForgotPassword}>
                 <Text>Forgot Password?</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLogin}>
+            <TouchableOpacity onPress={() => navigation.navigate('EmployeeScreen')}>
                 <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10 }}>Log In</Text>
             </TouchableOpacity>
             <Button title="Send HTTP Request" onPress={handleButtonPress} />
