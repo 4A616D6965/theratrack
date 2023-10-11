@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TextInput, TouchableOpacity } from 'react-native';
+import { sendHttpRequest } from '.././api/createTherapist.js'; 
 
 function LoginScreen({navigation}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleButtonPress = () => {
+        sendHttpRequest()
+        .then((response) => {
+            console.log('Request succeeded with JSON response:', response);
+            // Handle the response data here
+        })
+        .catch((error) => {
+            // Handle any errors here
+        });
+    };
 
     const handleLogin = () => {
         // handle login logic here
@@ -43,6 +55,7 @@ function LoginScreen({navigation}) {
             <TouchableOpacity onPress={handleLogin}>
                 <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10 }}>Log In</Text>
             </TouchableOpacity>
+            <Button title="Send HTTP Request" onPress={handleButtonPress} />
         </View>
     );
 };
