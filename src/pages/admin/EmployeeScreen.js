@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import CardElement from '../../components/CardElement';
 
-function EmployeePage() {
+function EmployeeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Employees</Text>
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EmployeePage;
+export default EmployeeScreen;
