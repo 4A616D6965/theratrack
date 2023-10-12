@@ -5,6 +5,12 @@ import InformativeBar from '../../components/InformativeBar';
 
 
 function EmployeeScreen({navigation}) {
+
+  const navigationHandler = () => {
+    console.log('clicked cardelement');
+    //navigation.navigate('EmployeeAppointmentView');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>My Employees</Text>
@@ -14,8 +20,8 @@ function EmployeeScreen({navigation}) {
         {/* Add multiple CardElement components */}
         <CardElement name='Jamie' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentType={'Outcall appointment'} onCall={true}/>
         <CardElement name='Jamie' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentType={'Outcall appointment'} onCall={true} />
-        <CardElement name='Jamie' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentType={'Outcall appointment'} onCall={true} />
-        {/* <TouchableOpacity onPress={() => navigation.navigate('AppointmentView')}>
+        <CardElement onPress={navigationHandler} name='Jamie' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentType={'Outcall appointment'} onCall={true} />
+        {/* <TouchableOpacity onPress={() => navigation.navigate('EmployeeAppointmentView')}>
             <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10 }}>Log In</Text>
         </TouchableOpacity> */}
         {/* Add more CardElement components as needed */}

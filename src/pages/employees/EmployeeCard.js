@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import CheckInStatus from '../employees/CheckInStatus';
-import { useState ,useEffect} from 'react';
+import { useState , useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 function EmployeeCard(props) {
