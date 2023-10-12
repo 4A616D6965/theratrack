@@ -4,14 +4,14 @@ import AppointmentStatus from '../utils/AppointmentTime';
 
 
 
-const CardElement = ({name, location, appointmentType, onCall}) => {
+const CardElement = ({name, location, appointmentType, onCall, image, appointmentTime}) => {
 
 
   return (
     <View style={styles.card}>
       <View style={styles.header}>
         <Image
-          source={require('../assets/background.png')}
+          source={image}
           style={styles.profileIcon}
         />
         <View style={styles.headerText}>
@@ -19,7 +19,7 @@ const CardElement = ({name, location, appointmentType, onCall}) => {
           {onCall && <Text style={styles.description}>{appointmentType}</Text> }
         </View>
         <View style={styles.status}>
-        <AppointmentStatus appointmentTime={new Date(Date.now() + 15 * 60 * 1000)} /> {/* In Progress */}
+        <AppointmentStatus appointmentTime={appointmentTime} /> {/* In Progress */}
             {/* <AppointmentStatus appointmentTime={new Date(Date.now() + 15 * 60 * 1000)} />Not Responded
             <AppointmentStatus appointmentTime={new Date(Date.now() + 30 * 60 * 1000)} /> In Danger
             <AppointmentStatus appointmentTime={new Date(Date.now() + 45 * 60 * 1000)} /> Safe */}
