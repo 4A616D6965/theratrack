@@ -1,50 +1,79 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import AppointmentStatus from '../utils/AppointmentTime';
 
 const CardElement = () => {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
         <Image
-          source={{ uri: 'https://example.com/profile-icon.png' }}
+          source={require('../assets/background.png')} 
           style={styles.profileIcon}
         />
         <View style={styles.headerText}>
           <Text style={styles.name}>John Doe</Text>
-          <Text style={styles.description}>Some text beneath the name</Text>
+          <Text style={styles.description}>Outcall appointment</Text>
         </View>
         <View style={styles.status}>
-          <Text style={styles.statusText}>Online</Text>
+        <AppointmentStatus appointmentTime={new Date(Date.now() + 15 * 60 * 1000)} /> {/* In Progress */}
+            {/* <AppointmentStatus appointmentTime={new Date(Date.now() + 15 * 60 * 1000)} />Not Responded
+            <AppointmentStatus appointmentTime={new Date(Date.now() + 30 * 60 * 1000)} /> In Danger
+            <AppointmentStatus appointmentTime={new Date(Date.now() + 45 * 60 * 1000)} /> Safe */}
         </View>
       </View>
-      <Text style={styles.location}>Location: New York</Text>
+
+      <View style={styles.footerContainer}>
+        <View style={styles.iconContainer}>
+            <Image source={require('../assets/location.svg')} style={styles.icon} />
+        </View>
+        {/* Right side with a column layout */}
+        <View style={styles.textContainer}>
+            <Text style={styles.description}>1/2 190 Queen St., G3 5AB, Glasgow</Text>
+        </View>
+      </View>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
+    borderBottomWidth: 1, 
     borderColor: '#ddd',
     borderRadius: 5,
-    margin: 10,
-    padding: 10,
+    width: '100%',
+    padding: 12,
+  },
+  footerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
   },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  iconContainer: {
+    marginRight: 10,
+  },
+  icon: {
+    width: 24,    
+    height: 24,
+  },
   profileIcon: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     borderRadius: 25,
   },
   headerText: {
     marginLeft: 10,
   },
   name: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   description: {

@@ -13,10 +13,10 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Employee">
+        <Stack.Navigator initialRouteName="EmployeeScreen">
           <Stack.Screen options={{headerShown: false}} name="LaunchScreen" component={LaunchScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
-          <Stack.Screen name="EmployeeScreen" component={EmployeeScreen} />
+          <Stack.Screen options={{headerShown: false}} name="EmployeeScreen" component={EmployeeScreen} />
           <Stack.Screen options={{ path: 'Employee' }} name="Employee" component={Employee} />
 
           <Stack.Screen options={{ path: 'AppointmentView' }} name="AppointmentView" component={AppointmentView} />

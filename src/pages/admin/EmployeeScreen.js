@@ -27,15 +27,20 @@ function EmployeeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#f5f5f5',
   },
   title: {
+    marginTop: 24,
+    marginRight: 24,
+    marginLeft: 24,
     fontSize: 24,
     fontWeight: 'bold',
   },
   pageDescription: {
-    marginTop: 10,
+    marginBottom: 24,
+    marginRight: 24,
+    marginLeft: 24,
+    marginTop: 8,
     fontSize: 16,
   },
 });
