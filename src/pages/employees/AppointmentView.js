@@ -32,7 +32,7 @@ export default function AppointmentView({route}) {
  
 const navigationHandler = () => {
    setCheckInStatus("In Progress");
-  //navigation.navigate('Employee',{ checkInStatus : "In Progress" }) ;
+  navigation.navigate('Employee',{ checkInStatus : "In Progress" }) ;
  }
 
     return (
