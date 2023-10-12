@@ -2,17 +2,21 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import AppointmentStatus from '../utils/AppointmentTime';
 
-const CardElement = () => {
+
+
+const CardElement = ({name, location, appointmentType, onCall}) => {
+
+
   return (
     <View style={styles.card}>
       <View style={styles.header}>
         <Image
-          source={require('../assets/background.png')} 
+          source={require('../assets/background.png')}
           style={styles.profileIcon}
         />
         <View style={styles.headerText}>
-          <Text style={styles.name}>John Doe</Text>
-          <Text style={styles.description}>Outcall appointment</Text>
+          <Text style={styles.name}>{name}</Text>
+          {onCall && <Text style={styles.description}>{appointmentType}</Text> }
         </View>
         <View style={styles.status}>
         <AppointmentStatus appointmentTime={new Date(Date.now() + 15 * 60 * 1000)} /> {/* In Progress */}
@@ -21,16 +25,17 @@ const CardElement = () => {
             <AppointmentStatus appointmentTime={new Date(Date.now() + 45 * 60 * 1000)} /> Safe */}
         </View>
       </View>
-
-      <View style={styles.footerContainer}>
-        <View style={styles.iconContainer}>
-            <Image source={require('../assets/location.svg')} style={styles.icon} />
+      {onCall &&
+        <View style={styles.footerContainer}>
+          <View style={styles.iconContainer}>
+              <Image source={require('../assets/location.svg')} style={styles.icon} />
+          </View>
+          {/* Right side with a column layout */}
+          <View style={styles.textContainer}>
+              <Text style={styles.description}>{location}</Text>
+          </View>
         </View>
-        {/* Right side with a column layout */}
-        <View style={styles.textContainer}>
-            <Text style={styles.description}>1/2 190 Queen St., G3 5AB, Glasgow</Text>
-        </View>
-      </View>
+      }
       
     </View>
   );

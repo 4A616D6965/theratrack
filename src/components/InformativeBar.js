@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: '#0074E4',
+    backgroundColor: '#fff',
   },
   iconContainer: {
     marginRight: 10,
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    color: 'white',
+    color: '#000',
   },
   description: {
     fontSize: 14,
-    color: 'white',
+    color: '#72777A',
   },
 });
 
