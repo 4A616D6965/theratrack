@@ -32,8 +32,11 @@ function LoginScreen ({navigation}) {
         <View style={styles.termsStyle}>
             <Text>By continuing, you agree to our <Link>Terms of Service</Link> and <Link>Privacy Policy</Link>.</Text>
         </View>
-      <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText} onPress={() => navigation.navigate('EmployeeScreen')}>Login</Text>
+      <TouchableOpacity style={styles.adminLoginButton}>
+            <Text style={styles.adminLoginButtonText} onPress={() => navigation.navigate('EmployeeScreen')}>Admin Log in</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.loginButton}>
+            <Text style={styles.loginButtonText} onPress={() => navigation.navigate('Employee')}>Employee Log in</Text>
         </TouchableOpacity>
     </View>
   );
@@ -49,7 +52,18 @@ const styles = StyleSheet.create({
     marginRight: 'auto'
   },    
   termsStyle: {
-    marginBottom: 70
+    marginBottom: 100
+  },
+  adminLoginButton: {
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 48,
+    borderColor: '#1C5BA7',
+    bottom: 50,
+    position: 'absolute',
+    width: '90%',
+    marginVertical: 24, 
   },
   loginButton: {
     backgroundColor: '#1C5BA7',
@@ -61,6 +75,12 @@ const styles = StyleSheet.create({
     width: '90%',
     marginVertical: 24, 
   },
+  adminLoginButtonText: {
+    fontSize: 16,
+    fontWeight: 500,
+    color: '#000',
+    textAlign: 'center',
+  },    
   loginButtonText: {
     fontSize: 16,
     fontWeight: 500,
