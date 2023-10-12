@@ -2,8 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-
-
 function EmployeeCard( props) {
   return (
     <>
