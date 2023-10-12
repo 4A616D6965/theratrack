@@ -12,9 +12,12 @@ const CheckInStatus = (props) => {
 
       return { status: 'In Progress', color: colors.blue_lightest, lightColour: colors.blue_darkest };
     }
-    else {
-      return { status: '', color: '', lightColour: '' };
+    else if (props.status === "Checked Out") {
+      return { status: 'Checked Out', color: colors.green_lightest, lightColour: colors.green_darkest };
 
+    }
+    else {
+      return { status: '', color: '', lightColour: '' }
     }
   }
   const { status, color, lightColour } = getStatus(props.status);

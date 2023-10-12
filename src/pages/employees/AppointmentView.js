@@ -31,7 +31,7 @@ export default function AppointmentView({route}) {
 
  
 const navigationHandler = () => {
-   setCheckInStatus("In Progress");
+   //setCheckInStatus("In Progress");
   navigation.navigate('Employee',{ checkInStatus : "In Progress" }) ;
  }
 
@@ -98,6 +98,14 @@ const navigationHandler = () => {
                     </Card.Body>
                 </Card>
             </View>
+
+            {/* {setCheckInStatus && <>
+            <Button variant="primary" onClick={clickedCheckOut}>Check Out</Button>
+            <Button variant="secondary">Report an Incident</Button></>
+            }
+             {!setCheckInStatus && !complete &&
+              <Button variant="primary" onClick={clickedCheckIn}>Check In</Button>} */}
+
             <TouchableOpacity style={styles.button}>
 
                 <Text style={styles.buttonText} onPress={() => navigationHandler()}>Check In</Text>

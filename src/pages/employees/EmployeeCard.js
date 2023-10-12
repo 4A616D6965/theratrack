@@ -4,44 +4,71 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import CheckInStatus from '../employees/CheckInStatus';
 import { useState , useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { AppointmentView } from '../employees/AppointmentView'
 
 function EmployeeCard(props) {
 
-const [checkInStatus, setCheckInStatus] = useState(null);
+ useEffect(() => {
+  if(checkInStatus){
+    setNewStatus();
+  }
+}, [checkInStatus]);
+
+function setNewStatus(){
+  styles.status == 'In Progress';
+}
+
+const [checkInStatus, setCheckInStatus] = useState(false);
+const [complete, setComplete] = useState(false);
+const [statusProgress, setStatusProgress] = useState(null)
 
 
 const navigation = useNavigation();
 
-const navigationHandler = () => {
-  navigation.navigate('AppointmentView',{setCheckInStatus: setCheckInStatus});
+function clickedCheckIn(checkInStatus){
+setCheckInStatus(true);
+setStatusProgress("In Progress");
 }
-  return (
-    <>
+
+function clickedCheckOut(checkInStatus){
+  setCheckInStatus(false);
+  setComplete(true)
+  setStatusProgress("Checked Out")
+}
+
+const navigationHandler = () => {
+  console.log('hello')
+  navigation.navigate('AppointmentView',{statusProgress});
+} 
+
+return (  
       <View style={styles.card}>
 
         <Card>
-          <Card.Header>{props.name}  {props.time} </Card.Header>
+          <Card.Header onClick={() => navigationHandler()}>{props.name}  {props.time} </Card.Header>
           <Card.Body>
             <Card.Title>
               <>
                 <Text style={{ fontSize: 14, color: 'gray' }}>{props.appointmentsType}</Text>
               </>
               <View style={styles.status}>
-                <CheckInStatus status={checkInStatus} />
+                <CheckInStatus status={statusProgress} />
               </View>
             </Card.Title>
             <Card.Text>
               {props.location}
             </Card.Text>
-            <Button variant="primary" onClick={navigationHandler}>Check In</Button>
+            {checkInStatus && <>
+            <Button variant="primary" onClick={clickedCheckOut}>Check Out</Button>
+            <Button variant="secondary">Report an Incident</Button></>
+            }
+             {!checkInStatus && !complete &&
+              <Button variant="primary" onClick={clickedCheckIn}>Check In</Button>}
           </Card.Body>
         </Card>
       </View>
-    </>
+    
   );
-
-
-
 }
 
 const styles = StyleSheet.create({
