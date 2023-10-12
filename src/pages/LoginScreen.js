@@ -33,7 +33,7 @@ function LoginScreen ({navigation}) {
             <Text>By continuing, you agree to our <Link>Terms of Service</Link> and <Link>Privacy Policy</Link>.</Text>
         </View>
       <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText} onPress={() => navigation.navigate('LoginScreen')}>Login</Text>
+            <Text style={styles.loginButtonText} onPress={() => navigation.navigate('EmployeeScreen')}>Login</Text>
         </TouchableOpacity>
     </View>
   );
