@@ -23,8 +23,8 @@ const navigationEmployee = () => {
 }
 const defaultProps = {
     center: {
-        lat: 10.99835602,
-        lng: 77.01502627
+        lat: 55.8642,
+        lng: -4.2518
     },
     zoom: 11
 };
