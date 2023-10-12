@@ -15,7 +15,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="LaunchScreen">
           <Stack.Screen options={{headerShown: false}} name="LaunchScreen" component={LaunchScreen} />
-          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen options={{headerShown: false}} name="LoginScreen" component={LoginScreen} />
           <Stack.Screen options={{headerShown: false}} name="EmployeeScreen" component={EmployeeScreen} />
           <Stack.Screen options={{ path: 'Employee' }} name="Employee" component={Employee} />
 

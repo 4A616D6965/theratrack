@@ -20,7 +20,7 @@ function EmployeeScreen({navigation}) {
         </TouchableOpacity> */}
         {/* Add more CardElement components as needed */}
       </ScrollView>
-      <Text style={styles.title}>Not on call</Text>
+      <View><Text style={styles.title}>Not on call</Text></View>
       <CardElement name='Jamie' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentType={'Outcall appointment'} onCall={false} />
     </View>
   );
