@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import Card from 'react-bootstrap/Card';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 import {
@@ -14,6 +15,8 @@ import {
     MDBBtn,
     MDBRipple
 } from 'mdb-react-ui-kit';
+import CardElement from '../../components/CardElement';
+import InformativeBar from '../../components/InformativeBar';
 
 
 
@@ -29,9 +32,16 @@ const defaultProps = {
     zoom: 11
 };
 
-export default function EmployeeAppointmentView() {
+export default function EmployeeAppointmentView({navigation}) {
     return (
-        <>
+        <View style={styles.container}>
+            <View style={styles.headerBack}>
+                <TouchableOpacity style={styles.headerButton}>
+                    <Icon onPress={() => navigation.navigate('EmployeeScreen')} name="chevron-left" size={12} color="black" />
+                </TouchableOpacity>
+                <Text style={styles.backTitle}>Employee Details</Text>
+            </View>
+
             <MDBCard>
                 <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
                     <div style={{ height: '40vh', width: '100%' }}>
@@ -46,96 +56,12 @@ export default function EmployeeAppointmentView() {
                 </MDBRipple>
 
             </MDBCard>
+            <CardElement name='David Beckham' location='1/2 190 Queen St., G3 5AB, Glasgow' appointmentTime={new Date(Date.now() + 0 * 60 * 1000)} appointmentType={'Outcall appointment'} onCall={true} image={require('../../assets/profile3.jpg')}/>
+            <InformativeBar image={require('../../assets/profile.svg') } title={'Client Name'} description={'David Beckham'}/>
+            <InformativeBar image={require('../../assets/location.svg') } title={'Date'} description={'Wednesday 11 October, 2023'} />
+            <InformativeBar image={require('../../assets/time.svg') } title={'Appointment Time'} description={'11:30 - 12:30'} />
 
-
-            <View style={styles.card}>
-
-                <Card>
-                    <Card.Header>  Marie Shapoval </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>Outcall appointment</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View>
-
-
-
-            <View style={styles.card}>
-
-                <Card>
-                    <Card.Header>  1/2 190 Queen St, G3 1AB </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>Glasgow</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View>
-            <View style={styles.card}>
-
-                <Card>
-                    <Card.Header> Client Name </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>Konrad Scroggins</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View>
-
-            <View style={styles.card}>
-
-                <Card>
-                    <Card.Header> Date </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>Wednesday 11 October, 2023</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View><View style={styles.card}>
-
-                <Card>
-                    <Card.Header> Client Name </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>Konrad Scroggins</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View>
-
-            <View style={styles.card}>
-
-                <Card>
-                    <Card.Header> Appointment time </Card.Header>
-                    <Card.Body>
-                        <Card.Title>
-                            <>
-                                <Text style={{ fontSize: 14, color: 'gray' }}>11:30 - 12:30</Text>
-                            </>
-                        </Card.Title>
-
-                    </Card.Body>
-                </Card>
-            </View>
+<View style={styles.buttonRow}>
             <TouchableOpacity style={styles.button}>
 
                 <Text style={styles.buttonText} onPress={() => navigation.navigate('Employee')}>Call</Text>
@@ -143,12 +69,38 @@ export default function EmployeeAppointmentView() {
             <TouchableOpacity style={styles.button2}>
                 <Text style={styles.buttonText2} onPress={() => navigation.navigate('Employee')}>Send SMS</Text>
             </TouchableOpacity>
-        </>
+            </View>
+        </View>
     );
 }
 
 
 const styles = StyleSheet.create({
+    headerButton: {
+        marginRight: 'auto'
+    },
+    buttonRow: {
+        display: 'flex',
+        bottom: 0,
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    container: {
+        backgroundColor: '#fff',
+        height: '100%'
+    },
+    headerBack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding:10
+      },
+      backTitle: {
+        fontSize: 18,
+        marginRight: 100,
+        textAlign: 'center'
+      },
+
     card: {
         borderWidth: 1,
         borderColor: '#ddd',
@@ -156,18 +108,13 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
     },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
     profileIcon: {
         width: 50,
         height: 50,
         borderRadius: 25,
     },
     headerText: {
-        marginLeft: 10,
+        marginLeft:20,
     },
     name: {
         fontSize: 18,
@@ -175,7 +122,7 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 14,
-        color: 'gray',
+        color: 'fff',
     },
     status: {
         flex: 1,
@@ -184,28 +131,30 @@ const styles = StyleSheet.create({
     statusText: {
         color: 'green',
     },
-    location: {
-        marginTop: 10,
-        color: 'lightgray',
-    },
+    // location: {
+    //     marginTop: 10,
+    //     color: 'lightgray',
+    // },
     button: {
         backgroundColor: '#1C5BA7',
         paddingVertical: 10,
-        paddingHorizontal: 5,
+        paddingHorizontal: 70,
         borderRadius: 20,
         margin: 4,
         alignItems: 'center',
-        
+        maxWidth: 150
         },
 
         button2: {
             backgroundColor: '#FFFFFF',
             paddingVertical: 10,
-            paddingHorizontal: 5,
+            paddingHorizontal: 40,
             borderRadius: 20,
+            borderWidth: 1,
             margin: 4,
             alignItems: 'center',
-            
+            maxWidth: 200,
+            borderColor: '#1C5BA7'
             },
     buttonText: {
         fontSize: 20,

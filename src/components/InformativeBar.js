@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-function InformativeBar() {
+function InformativeBar({image, title, description}) {
   return (
     <View style={styles.container}>
       {/* Left side with an icon */}
       <View style={styles.iconContainer}>
-        <Image source={require('../assets/background.png')} style={styles.icon} />
+        <Image source={image} style={styles.icon} />
       </View>
 
       {/* Right side with a column layout */}
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Information Title</Text>
-        <Text style={styles.description}>A brief description of the information goes here.</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.description}>{description}</Text>
       </View>
     </View>
   );
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 24,
+    height: 24,
   },
   textContainer: {
     flex: 1,
