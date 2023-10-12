@@ -4,7 +4,6 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import EmployeeCard from "./EmployeeCard";
-import { useNavigation } from '@react-navigation/native';
 
 
  
@@ -43,12 +42,7 @@ export default function BasicTabs() {
     setValue(newValue);
   };
 
-const navigation = useNavigation();
 
-const navigationHandler = () => {
-  navigation.navigate('AppointmentView');
-
-}
 
  
 
@@ -61,9 +55,9 @@ const navigationHandler = () => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <EmployeeCard navigationHandler={navigationHandler} name="Konrad Scroggins" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
-        <EmployeeCard  navigationHandler={navigationHandler}name="Ivory Gendler" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
-        <EmployeeCard  navigationHandler={navigationHandler} name="Almire Wuori" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
+        <EmployeeCard  name="Konrad Scroggins" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
+        <EmployeeCard  name="Ivory Gendler" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
+        <EmployeeCard  name="Almire Wuori" appoinmenttype="Outcall appointment" time ="15:00" location="1/2 190 Queen St., G3 5AB, Glasgow"/>
 
                 </CustomTabPanel>
       

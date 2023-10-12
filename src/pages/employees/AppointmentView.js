@@ -17,10 +17,7 @@ import {
 
 
 
-
-const navigationEmployee = () => {
-    navigation.navigate('Employee');
-}
+ 
 const defaultProps = {
     center: {
         lat: 55.8642,
@@ -29,7 +26,15 @@ const defaultProps = {
     zoom: 11
 };
 
-export default function AppointmentView() {
+export default function AppointmentView({route}) {
+    const { setCheckInStatus } = route.params;
+
+ 
+const navigationHandler = () => {
+   setCheckInStatus("In Progress");
+  //navigation.navigate('Employee',{ checkInStatus : "In Progress" }) ;
+ }
+
     return (
         <>
             <MDBCard>
@@ -95,7 +100,7 @@ export default function AppointmentView() {
             </View>
             <TouchableOpacity style={styles.button}>
 
-                <Text style={styles.buttonText} onPress={() => navigation.navigate('Employee')}>Check In</Text>
+                <Text style={styles.buttonText} onPress={() => navigationHandler()}>Check In</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
                 <Text style={styles.buttonText2} onPress={() => navigation.navigate('Employee')}>Get directions</Text>

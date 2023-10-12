@@ -4,16 +4,13 @@ import CustomTabPanel from "./TabPages";
 import CardElement from "../../components/CardElement";
 const Employee = () => {
   return (
-<>
-       <CardElement/>
-       <View style={styles.header}>
+    <>
+      <CardElement />
+      <View style={styles.header}>
         <Text style={styles.title}>My Appointments</Text>
       </View>
- 
-        <CustomTabPanel />
-       
-       
-     </>
+      <CustomTabPanel />
+    </>
   );
 };
 const styles = StyleSheet.create({

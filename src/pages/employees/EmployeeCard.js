@@ -1,8 +1,20 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import CheckInStatus from '../employees/CheckInStatus';
+import { useState ,useEffect} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-function EmployeeCard( props) {
+function EmployeeCard(props) {
+
+const [checkInStatus, setCheckInStatus] = useState(null);
+
+
+const navigation = useNavigation();
+
+const navigationHandler = () => {
+  navigation.navigate('AppointmentView',{setCheckInStatus: setCheckInStatus});
+}
   return (
     <>
       <View style={styles.card}>
@@ -14,11 +26,14 @@ function EmployeeCard( props) {
               <>
                 <Text style={{ fontSize: 14, color: 'gray' }}>{props.appointmentsType}</Text>
               </>
+              <View style={styles.status}>
+                <CheckInStatus status={checkInStatus} />
+              </View>
             </Card.Title>
             <Card.Text>
-            {props.location}            
+              {props.location}
             </Card.Text>
-            <Button variant="primary" onClick={props.navigationHandler}>Check In</Button>
+            <Button variant="primary" onClick={navigationHandler}>Check In</Button>
           </Card.Body>
         </Card>
       </View>
